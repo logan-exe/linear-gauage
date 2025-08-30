@@ -1,0 +1,87 @@
+/* Bootstrap-based styles for Linear Gauge Component */
+
+.gauge-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.gauge-card {
+  background-color: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  padding: 1.5rem;
+}
+
+.loading-container {
+  text-align: center;
+  padding: 2rem 0;
+}
+
+.loading-spinner {
+  width: 3rem;
+  height: 3rem;
+  border: 0.25rem solid transparent;
+  border-top: 0.25rem solid #007bff;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 0 auto;
+}
+
+.loading-text {
+  margin-top: 1rem;
+  color: #6c757d;
+}
+
+.legend-container {
+  margin-top: 1.5rem;
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  font-size: 0.875rem;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+}
+
+.legend-line {
+  width: 1rem;
+  height: 0.125rem;
+  margin-right: 0.5rem;
+}
+
+.legend-line-yellow {
+  background-color: #ffc107;
+}
+
+.legend-line-blue {
+  background-color: #2196f3;
+}
+
+.legend-line-red {
+  background-color: #f44336;
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .legend-container {
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: center;
+  }
+
+  .gauge-card {
+    padding: 1rem;
+  }
+}

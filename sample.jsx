@@ -1,8 +1,7 @@
-"use client"
-
 import { useEffect, useState } from "react"
 import HighchartsReact from "highcharts-react-official"
 import Highcharts from "highcharts"
+import "./linear-gauge.css"
 
 export default function LinearGauge({ performance, low, actual, high, title = "Performance" }) {
   const [isClient, setIsClient] = useState(false)
@@ -103,31 +102,31 @@ export default function LinearGauge({ performance, low, actual, high, title = "P
 
   if (!isClient) {
     return (
-      <div className="w-full max-w-7xl mx-auto">
-        <div className="text-center py-8">
-          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto"></div>
-          <p className="mt-4 text-gray-600">Loading charts...</p>
+      <div className="gauge-container">
+        <div className="loading-container">
+          <div className="loading-spinner"></div>
+          <p className="loading-text">Loading charts...</p>
         </div>
       </div>
     )
   }
 
   return (
-    <div className="w-full max-w-7xl mx-auto">
-      <div className="bg-white rounded-lg shadow-md p-4">
+    <div className="gauge-container">
+      <div className="gauge-card">
         <HighchartsReact highcharts={Highcharts} options={horizontalGaugeOptions} />
 
-        <div className="mt-4 flex justify-center space-x-6 text-sm">
-          <div className="flex items-center">
-            <div className="w-4 h-0.5 bg-yellow-500 mr-2"></div>
+        <div className="legend-container">
+          <div className="legend-item">
+            <div className="legend-line legend-line-yellow"></div>
             <span>Low Threshold</span>
           </div>
-          <div className="flex items-center">
-            <div className="w-4 h-0.5 bg-blue-500 mr-2"></div>
+          <div className="legend-item">
+            <div className="legend-line legend-line-blue"></div>
             <span>Actual Value</span>
           </div>
-          <div className="flex items-center">
-            <div className="w-4 h-0.5 bg-red-500 mr-2"></div>
+          <div className="legend-item">
+            <div className="legend-line legend-line-red"></div>
             <span>High Threshold</span>
           </div>
         </div>
